@@ -1,0 +1,42 @@
+<html>
+
+<body>
+    <script>
+        class Worker{
+            constructor(name, year){
+                this.n=name;
+                this.y=year;
+            }
+            age(){
+                var d=new Date();
+                return d.getFullYear()-this.y;
+            }
+            display(){
+                return "My name is " +this.n+ ", my age is " +this.age();
+            }
+        }
+        class Wr extends Worker {
+            constructor(name, year, yoj/*year of joining*/){ 
+                super(name, year); 
+                this.j = yoj;
+            }
+            YearsWorked(){
+                var y=new Date();
+                return y.getFullYear()-this.j;
+            }
+            static greetings(){
+                return "Hello ";
+            }
+            display2(){
+                return this.display() + ", I've worked " + this.YearsWorked() + " years in #### company.";
+            }
+        }
+        let i1=new Worker("Misha",1993);
+        let i2=new Wr("Arni",2000,2022); 
+
+        document.write(i1.display()+"<br><br>");
+        document.write(Wr.greetings() +  i2.display2()); 
+    </script>
+</body>
+
+</html>
